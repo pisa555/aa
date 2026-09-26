@@ -7,7 +7,35 @@
 <form id="expense"><h3>Expense</h3><div class="row"><div><label>Reference</label><input name="reference" placeholder="E01" required></div><div><label>Category</label><select name="category"><option>Materials</option><option>Travel</option><option>Other</option></select></div><div><label>Amount (€)</label><input name="amount" type="number" min="0.01" step="0.01" required></div></div><label>Description</label><textarea name="description" required></textarea><label>Proposed allocation</label><select name="allocation"><option>A</option><option>B</option><option>Company overhead</option></select><button>Submit expense</button></form></section>
 <section id="manager" class="hidden"><h2>Manager decisions</h2><div id="pending"></div><form id="link"><h3>Telegram employee setup</h3><div class="row"><div><label>Employee</label><select name="code"><option value="richard">Richard</option><option value="anastasia">Anastasia</option><option value="jeanclaude">Jean-Claude</option><option value="kevin">Kevin</option></select></div><div><label>Telegram user ID</label><input name="telegramUserId" placeholder="123456"></div><div><label>Telegram chat ID</label><input name="telegramChatId" placeholder="123456"></div></div><button>Save link</button></form></section>
 <section><h2>Records</h2><div style="overflow:auto"><table><thead><tr><th>Ref</th><th>Type</th><th>Submitter</th><th>Amount</th><th>Status</th><th>Decision</th><th>Sync</th><th>Notification</th></tr></thead><tbody id="records"></tbody></table></div></section>
-<p class="note">Supabase is authoritative. Google Sheets is read-only review copy. Configure the external services in SETUP.md before running the graded tests.</p></main><script type="module">
+<section class="card">
+  <h2>Student and project links</h2>
+
+  <p><strong>Student:</strong> Danila Lazarevs</p>
+
+  <p>
+    <a href="https://t.me/fr1endsssss_bot" target="_blank">
+      Open the Telegram bot
+    </a>
+  </p>
+
+  <p>
+    <a href="https://docs.google.com/spreadsheets/d/1epTrWfHdu3AnSfpvL0uRCNJFkeP0a5_hAARJ8Lv4CNY/edit?usp=sharing" target="_blank">
+      Open the Google Sheets records
+    </a>
+  </p>
+
+  <p>
+    <a href="ВСТАВЬ_ССЫЛКУ_НА_GITHUB_РЕПОЗИТОРИЙ" target="_blank">
+      Open the GitHub repository
+    </a>
+  </p>
+
+  <p class="note">
+    Instructions: select a demonstration role, enter a sale or expense in the
+    transaction forms, and select Svetlana to approve or correct pending
+    decisions in Manager decisions.
+  </p>
+</section><p class="note">Supabase is authoritative. Google Sheets is read-only review copy. Configure the external services in SETUP.md before running the graded tests.</p></main><script type="module">
 const $=s=>document.querySelector(s), money=c=>'€'+(Number(c||0)/100).toFixed(2); let state;
 function message(t,good=false){$('#message').innerHTML=`<p class="${good?'ok':'error'}">${t}</p>`}
 async function request(url,method,body){const r=await fetch(url,{method,headers:{'Content-Type':'application/json'},body:body&&JSON.stringify(body)}),d=await r.json();if(!r.ok)throw Error(d.error);return d}
